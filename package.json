@@ -8,5 +8,9 @@
   },
   "keywords": ["cli", "emoji", "command-line", "tool", "emoji-cli", "anicli"],
   "author": "Maruf OVi",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamovi/anicli"
+  }
 }
