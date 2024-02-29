@@ -1,0 +1,12 @@
+{
+  "name": "anicli",
+  "version": "1.0.0",
+  "description": "A simple / lightweight / cross-platform command-line interface (CLI) tool for quickly displaying emojis based on their keywords.",
+  "main": "anicli",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["cli", "emoji", "command-line", "tool", "emoji-cli", "anicli"],
+  "author": "Maruf OVi",
+  "license": "MIT"
+}
