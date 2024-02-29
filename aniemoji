@@ -164,15 +164,21 @@ const emojis = {
     
 };
 
-// Check if any emoji keywords are provided as arguments
-const emojisToDisplay = args.filter(arg => arg in emojis).map(arg => emojis[arg]);
-
-// Display emojis found in the arguments
-if (emojisToDisplay.length > 0) {
-    console.log(emojisToDisplay.join(' '));
-} else if (args.length === 0) {
-    console.log('Available emojis:');
-    console.log(Object.values(emojis).join(' '));
-} else {
-    console.log('No emojis found.');
-}
+// Check for the --version or -v flag
+if (args.includes('--version') || args.includes('-v')) {
+    const packageJson = require('./package.json'); // Assuming package.json is in the same directory
+    console.log(`aniemoji v${packageJson.version}`);
+  } else {
+    // Check if any emoji keywords are provided as arguments
+    const emojisToDisplay = args.filter(arg => arg in emojis).map(arg => emojis[arg]);
+  
+    // Display emojis found in the arguments
+    if (emojisToDisplay.length > 0) {
+      console.log(emojisToDisplay.join(' '));
+    } else if (args.length === 0) {
+      console.log('Available emojis:');
+      console.log(Object.values(emojis).join(' '));
+    } else {
+      console.log('No emojis found :)');
+    }
+  }

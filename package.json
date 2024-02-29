@@ -1,16 +1,24 @@
 {
   "name": "aniemoji",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A simple / lightweight / cross-platform command-line interface (CLI) tool for quickly displaying emojis based on their keywords.",
   "main": "aniemoji",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["cli", "emoji", "command-line", "tool", "emoji-cli", "anicli"],
+  "keywords": ["cli", "emoji", "command-line", "aniemoji"],
   "author": "Maruf OVi",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/iamovi/aniemoji"
-  }
+  },
+  "bin": {
+    "aniemoji": "aniemoji"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
 }
