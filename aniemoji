@@ -159,7 +159,7 @@ const emojis = {
     fart: '💨',
     water: '💦',
     zzz: '💤',
-    blessed; '😇',
+    blessed: '😇',
     sigma: '🗿'
     
 };

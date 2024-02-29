@@ -1,4 +1,4 @@
-# anicli
+# aniemoji
 
 A simple / lightweight / cross-platform command-line interface (CLI) tool for quickly displaying emojis based on their keywords.
 
@@ -9,13 +9,13 @@ Make sure you have Node.js installed on your machine.
 ## Installation
 
 ```bash
-npm i -g anicli
+npm i -g aniemoji
 ```
 ## Usage
 
 Open terminal and run - 
 ```bash
-anicli happy
+aniemoji happy
 ```
 Output - 
 ```
@@ -24,7 +24,7 @@ Output -
 
 To view all emoji-list - 
 ```bash
-anicli
+aniemoji
 ```
 - all emoji will appear.
 - you can copy from here and use.
