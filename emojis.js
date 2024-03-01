@@ -1,85 +1,6 @@
-# aniemoji
+// emojis.js
 
-A simple / lightweight / cross-platform command-line interface (CLI) tool for quickly displaying emojis based on their keywords.
-
-## Prerequisites
-
-Make sure you have [Node.js](https://nodejs.org/en) installed on your machine.
-
-## Installation
-
-```bash
-npm i -g aniemoji
-```
-![preview-aniemoji-i](https://ik.imagekit.io/iamovi/aniemoji/aniemoji-i.gif?updatedAt=1709283578338)
-
-Now check aniemoji version 
-
-```bash
-aniemoji --version
-```
-Or,
-```bash
-aniemoji -v
-```
-![preview-aniemoji-version](https://ik.imagekit.io/iamovi/aniemoji/aniemoji-version.gif?updatedAt=1709284109396)
-
-## Usage
-
-**1.** Grabbing Emojis - 
-
-```bash
-aniemoji happy
-```
-Output - 
-```
-😊
-```
-
-Type whatever emoji you need - 
-```bash
-aniemoji angry
-```
-Output - 
-```
-😠
-```
-Another one -
-```bash
-aniemoji gun
-```
-Output - 
-```
-🔫
-```
-- Type your desired emojis.
-
----
-
-**2.** Display all emojis - 
-```bash
-aniemoji
-```
-
-**3.** View all emoji-list - 
-```bash
-aniemoji --list
-```
-
-**4.** Display help messages - 
-```bash
-aniemoji --help
-```
-
-**5.** Display author information - 
-```bash
-aniemoji --author
-```
-
----
-
-#### All emoji commands are given below
-```bash
+const emojis = {
     senti: '🙂',
     happy: '😊',
     angry: '😠',
@@ -292,16 +213,7 @@ aniemoji --author
     benzema: '🫦',
     alhilal: '💸',
     rma: '🏆'
-```
+    
+};
 
-## License
-
-[MIT](LICENSE)
-
-## Credits
-
-A thanks to [Tahsin Zidane](https://github.com/tahsinzidane) for suggesting some of the emoji names.
-
-## Author
-
-[Maruf Ovi](https://oviportfo.netlify.app/)
+module.exports = emojis;

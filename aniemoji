@@ -1,184 +1,106 @@
 #!/usr/bin/env node
 
+const readline = require('readline');
+const { execSync } = require('child_process');
 const args = process.argv.slice(2);
+const packageJson = require('./package.json');
+const currentVersion = packageJson.version;
+const emojis = require('./emojis');
 
-// Define a map of emojis by their Unicode representation
-const emojis = {
-    senti: '🙂',
-    happy: '😊',
-    angry: '😠',
-    angry1: '😡',
-    angry2: '😤',
-    angry3: '🤬',
-    angry4: '🤯',
-    angry_devil: '😈',
-    angry_devil1: '👿',
-    angry_devil2: '👹',
-    angry_devil3: '👺',
-    f: '🖕',
-    surprised: '😲',
-    wow: '😮',
-    laugh: '😀',
-    laugh1: '😃',
-    laugh2: '😄',
-    smile: '😁',
-    laugh4: '😆',
-    laugh5: '😂',
-    laugh6: '🤣',
-    fake_smile: '😅',
-    fake_sad: '🥹',
-    fake_sad2: '🥺',
-    cry: '🥲',
-    cry1: '😢',
-    cry2: '😥',
-    cry3: '😭',
-    sad: '☹️',
-    sad1: '😞',
-    sad2: '😔',
-    sad3: '😟',
-    sad4: '🙁',
-    dislike: '👎',
-    like: '👍',
-    heart: '❤️',
-    black_heart: '🖤',
-    purple_heart: '💜',
-    red_heart: '❤️',
-    orange_heart: '🧡',
-    yellow_heart: '💛',
-    green_heart: '💚',
-    blue_heart: '💙',
-    purple_heart: '💜',
-    brown_heart: '🤎',
-    black_heart: '🖤',
-    white_heart: '🤍',
-    brown_circle: '🩷',
-    red_circle: '🩵',
-    orange_circle: '🩶',
-    rose: '🌹',
-    tulip: '🌷',
-    sunflower: '🌻',
-    blossom: '🌼',
-    cherry_blossom: '🌸',
-    hibiscus: '🌺',
-    bouquet: '💐',
-    broken_heart: '💔',
-    sleepy: '😴',
-    flex: '😎',
-    incognito: '🥸',
-    handshake: '🤝',
-    kiss: '😗',
-    kiss1: '😙',
-    kiss2: '😚',
-    kiss3: '😘',
-    cat_kiss: '😽',
-    cat_happy: '😺',
-    cat_happy1: '😸',
-    cat_happy2: '😹',
-    cat_love: '😻',
-    cat_attitude: '😼',
-    cat_wow: '🙀',
-    cat_cry: '😿',
-    cat_angry: '😾',
-    chill: '😌',
-    attitude: '😎',
-    attitude1: '😏',
-    yummy: '😋',
-    yummy1: '🤤',
-    love_on_eyes: '😍',
-    tongue: '👅',
-    tongue1: '😛',
-    tongue2: '😝',
-    tongue3: '😜',
-    tongue4: '🤪',
-    chinease_face: '😑',
-    sun_face: '🫥',
-    what: '😐',
-    zippy_face: '🤐',
-    salute: '🫡',
-    thinking: '🤔',
-    shhh: '🤫',
-    oops: '🫢',
-    hug: '🤗',
-    huh: '😒',
-    doubt: '🤨',
-    doubt1: '🧐',
-    cold: '🥶',
-    hot: '🥵',
-    mask: '😷',
-    clown: '🤡',
-    cute_ghost: '👻',
-    halloween: '🎃',
-    poop: '💩',
-    robo: '🤖',
-    alien: '👽',
-    cr7: '🐐',
-    goat: '🐐',
-    slow: '🐢',
-    half_moon: '🌛',
-    half_moon1: '🌜',
-    black_moon: '🌚',
-    white_moon: '🌝',
-    sun: '🌞',
-    fire: '🔥',
-    bomb: '💣',
-    boom: '💥',
-    rocket: '🚀',
-    gun: '🔫',
-    umm: '🫦',
-    victory: '✌️',
-    yo: '🤘',
-    yoo: '🤟',
-    poke: '👉',
-    real_heart: '🫀',
-    lungs: '🫁',
-    brain: '🧠',
-    teeth: '🦷',
-    muah: '💋',
-    nose: '👃',
-    eye: '👁️',
-    look: '👀',
-    selfie: '🤳',
-    nailpolish: '💅',
-    cap: '🧢',
-    hat: '🎩',
-    bikini: '👙',
-    bikini1: '🩱',
-    sakura_dress: '👘',
-    saree: '🥻',
-    jeans: '👖',
-    boker: '🩲',
-    panda: '🐼',
-    ex: '🐍',
-    rose: '🌹',
-    rainbow: '🌈',
-    stars: '✨',
-    cloud: '☁️',
-    apple: '🍎',
-    shrimp: '🦐',
-    100: '💯',
-    fart: '💨',
-    water: '💦',
-    zzz: '💤',
-    blessed: '😇',
-    sigma: '🗿'
-    
-};
+// Check for a new version
+const latestVersion = execSync('npm show aniemoji version').toString().trim();
 
-// Check for the --version or -v flag
-if (args.includes('--version') || args.includes('-v')) {
-    const packageJson = require('./package.json'); // Assuming package.json is in the same directory
-    console.log(`aniemoji v${packageJson.version}`);
-  } else {
-    // Check if any emoji keywords are provided as arguments
-    const emojisToDisplay = args.filter(arg => arg in emojis).map(arg => emojis[arg]);
-  
-    // Display emojis found in the arguments
-    if (emojisToDisplay.length > 0) {
-      console.log(emojisToDisplay.join(' '));
-    } else if (args.length === 0) {
-      console.log('Available emojis:');
-      console.log(Object.values(emojis).join(' '));
-    } else {
-      console.log('No emojis found :)');
+if (latestVersion !== currentVersion) {
+  console.log(`A new version of aniemoji is available (${latestVersion}).`);
+  console.log(`Consider updating using 'npm update -g aniemoji'\n`);
+}
+
+// Check for the --list flag
+if (args.includes('--list')) {
+  console.log('Available emojis and their keywords:');
+  Object.entries(emojis).forEach(([keyword, symbol]) => console.log(`${keyword}: ${symbol}`));
+} else if (args.includes('--version') || args.includes('-v')) {
+  console.log(`aniemoji v${packageJson.version}`);
+} else if (args.includes('--author')) {
+  console.log('Author Information -');
+  console.log('\n'); // Line gap
+  console.log('Name: Maruf OVi');
+  console.log('Skills: Web Dev. Programmer');
+  console.log('GitHub: https://github.com/iamovi');
+  console.log('Portfolio: https://oviportfo.netlify.app');
+} else if (args.includes('--help')) {
+  console.log('aniemoji - Fun with Emojis');
+  console.log('\nCommands:');
+  console.log('  aniemoji --list     Display available emojis and their keywords.');
+  console.log('  aniemoji --version  Display the current version of aniemoji.');
+  console.log('  aniemoji --author   Display author information.');
+  console.log('  aniemoji --help     Display this help message.');
+  console.log('\nUsage:');
+  console.log('  aniemoji              Display available emojis.');
+  console.log('  aniemoji f            Display the "🖕" emoji.');
+  console.log('  aniemoji --list       Display available emojis and their keywords.');
+  console.log('  aniemoji --version    Display the current version of aniemoji.');
+  console.log('  aniemoji --author     Display author information.');
+  console.log('  aniemoji --help       Display this help message.');
+} else {
+  // Check if any emoji keywords are provided as arguments
+  const emojiKeyword = args.find(arg => arg in emojis);
+  if (emojiKeyword) {
+    const selectedEmoji = emojis[emojiKeyword];
+    console.log(selectedEmoji);
+
+    // Set up readline interface in raw mode to capture individual key presses
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
+
+    rl.output.write(`Selected Emoji: ${selectedEmoji}\n`);
+    rl.output.write('Choose an option (use arrow keys and press Enter):\n');
+    const options = ['copy', 'view all emoji'];
+    let selectedIndex = 0;
+
+    function printOptions() {
+      readline.moveCursor(rl.output, 0, -options.length - 1);
+      readline.clearScreenDown(rl.output);
+      rl.output.write(`Selected Emoji: ${selectedEmoji}\n`);
+      rl.output.write(options.map((option, index) => `${selectedIndex === index ? '-> ' : ''}${option}`).join('\n') + '\n');
     }
+
+    printOptions();
+
+    rl.input.setRawMode(true);
+    rl.resume();
+
+    rl.input.on('keypress', (key, data) => {
+      if (data && data.ctrl && data.name === 'c') {
+        // Handle Ctrl+C to exit
+        rl.close();
+      } else if (data.name === 'up' && selectedIndex > 0) {
+        // Handle arrow up
+        selectedIndex--;
+        printOptions();
+      } else if (data.name === 'down' && selectedIndex < options.length - 1) {
+        // Handle arrow down
+        selectedIndex++;
+        printOptions();
+      } else if (data.name === 'return') {
+        // Handle Enter
+        const selectedOption = options[selectedIndex];
+        if (selectedOption === 'view all emoji') {
+          console.log('Available emojis:');
+          console.log(Object.values(emojis).join(' '));
+        } else if (selectedOption === 'copy') {
+          console.log(`To copy the emoji " ${selectedEmoji} ", please select it and press Ctrl + Shift + C`);
+        }
+        rl.close();
+      }
+    });
+  } else if (args.length === 0) {
+    console.log('Available emojis:');
+    console.log(Object.values(emojis).join(' '));
+    console.log('\nMade with love by Maruf OVi.');
+  } else {
+    console.log('No emojis found :)');
   }
+}
