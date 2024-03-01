@@ -188,6 +188,7 @@ const emojis = {
     prince: '🫅',
     princess: '👸',
     king: '👑',
+    duck: '🦆',
     print: 'Hello World!',
     // players =>
     cricket: '🏏',
@@ -203,8 +204,8 @@ const emojis = {
     yellow_card: '🟨',
     joker_card: '🃏',
     zlatan: '🦁',
-    zncelotti: '🤨',
-    johnnysins: '🧑‍⚕️',
+    ancelotti: '🤨',
+    johnnysins: '👨‍⚕️',
     gavi: '🐄',
     neymar: '🤙',
     casemiro: '⛰️',

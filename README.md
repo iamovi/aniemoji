@@ -76,6 +76,17 @@ aniemoji --help
 aniemoji --author
 ```
 
+**6.** Update package if available - 
+```bash
+npm update -g aniemoji
+```
+
+**6.** Uninstall - 
+```bash
+npm uninstall -g aniemoji
+```
+- but don't uninstall pleaseeeee :(
+
 ---
 
 #### All emoji commands are given below
@@ -267,6 +278,7 @@ aniemoji --author
     prince: '🫅',
     princess: '👸',
     king: '👑',
+    duck: '🦆',
     print: 'Hello World!',
     // players =>
     cricket: '🏏',
@@ -282,8 +294,8 @@ aniemoji --author
     yellow_card: '🟨',
     joker_card: '🃏',
     zlatan: '🦁',
-    zncelotti: '🤨',
-    johnnysins: '🧑‍⚕️',
+    ancelotti: '🤨',
+    johnnysins: '👨‍⚕️',
     gavi: '🐄',
     neymar: '🤙',
     casemiro: '⛰️',
