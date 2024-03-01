@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aniemoji | site</title>
+  <link rel="icon" href="./assets/favicon.png">
+
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS from node_modules -->
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+
+  <!-- notAcursor -->
+  <link rel="stylesheet" href="./node_modules/notacursor/notacursor.css">
+
+  <!-- ani.css -->
+  <link rel="stylesheet" href="./node_modules/ani.css/dist/css/ani.min.css">
+
+  <!-- main css -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <!-- notAcursor-minecraftSword -->
+<div class="notAcursor-dot-minecraftSword" data-notacursor-dot></div>
+<img src="https://ik.imagekit.io/iamovi/notAcursor/minecraft-sword.png?updatedAt=1701079351519" alt="Cursor Image" 
+  class="notAcursor-outline-minecraftSword" data-notacursor-outline>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="./assets/favicon.png" alt="banner" class="banner"> aniemoji /</a>
+      <p>Emoji in your terminal, cross-platform cli tool for emojis.</p>
+    </div>
+  </nav>
+
+  <div class="container main awesome-gradient">
+    <video muted autoplay loop class="img-fluid cli-video">
+      <source src="./assets/video/aniemoji-site.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <h3 class="ani-txt-m main_h3">1/ install aniemoji package,</h3>
+    <p class="code ani-txt-f" id="npmCommand">npm i -g aniemoji <i class="bi bi-clipboard c-btn" id="copyIcon"></i></p>
+
+    <br><br>
+    <div class="mb-5">
+      <h2>Read more_</h2>
+      <a href="https://www.npmjs.com/package/aniemoji" target="_blank"><img src="./assets/icon/npm.svg" alt="npm" class="icon"></a>
+
+      <a href="https://github.com/iamovi/aniemoji" target="_blank"><img src="./assets/icon/github.svg" alt="gh" class="icon"></a>
+    </div>
+    
+  </div>
+
+  
+  <!-- Bootstrap JS dependencies from node_modules -->
+  <script src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- notAcursor -->
+  <script src="./node_modules/notacursor/notacursor.js"></script>
+
+  <!-- jq -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./assets/js/copy.js"></script>
+
+</body>
+
+</html>
