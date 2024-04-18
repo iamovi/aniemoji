@@ -91,7 +91,7 @@ if (args.includes('--list')) {
           console.log('Available emojis:');
           console.log(Object.values(emojis).join(' '));
         } else if (selectedOption === 'copy') {
-          console.log(`To copy the emoji " ${selectedEmoji} ", please select it and press Ctrl + Shift + C`);
+          console.log(`To copy the emoji " ${selectedEmoji} " , please select it and press Ctrl + Shift + C`);
         }
         rl.close();
       }
