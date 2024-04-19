@@ -226,6 +226,15 @@ const emojis = {
     8: '8️⃣',
     9: '9️⃣',
     10: '🔟',
+    react_js: '⚛️',
+    bike: '🏍️',
+    scooter: '🛵',
+    cycle: '🚲',
+    tempu: '🛺',
+    ambulance: '🚑 ambulance ',
+    headset: '🎧',
+    vs: '🆚',
+    yes: '☑️',
 };
 
 module.exports = emojis;
