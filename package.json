@@ -1,6 +1,6 @@
 {
   "name": "aniemoji",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A simple / lightweight / cross-platform command-line interface (CLI) tool for quickly displaying emojis based on their keywords.",
   "main": "aniemoji",
   "scripts": {
